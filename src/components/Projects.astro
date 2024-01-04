@@ -1,0 +1,49 @@
+---
+import SpringBootIcon from "./icons/SpringBoot.astro";
+import TailwindIcon from "./icons/Tailwind.astro";
+const TAGS = {
+    SPRING:{
+        name: 'SpringBoot',
+        class: 'bg-[#68bd45]/10',
+        icon: SpringBootIcon
+    },
+    TAILWIND:{
+        name: 'Tailwind CSS',
+        class: 'bg-[#1da5bb]/10',
+        icon: TailwindIcon
+    }
+}
+    
+const PROJECTS = [
+    {
+        title:'Sistema de compras Subacom',
+        description: 'Un sistema CMS basado en SpringBoot, que utiliza MySQL para una empresa ficticia de venta de productos tecnológicos, computadoras y periféricos. La inetrafz esta integrada en el proyecto Java con el framework Thymeleaf, TailwindCSS, y Javascript Vanilla.',
+        link: 'https://github.com/Gonzagut99/SistemaDeCompras_Subacom',
+        github: 'https://github.com/Gonzagut99/SistemaDeCompras_Subacom',
+        image: '/projects/subacom_dms.webp',
+        tags: [TAGS.SPRING, TAGS.TAILWIND,]
+    }
+]
+---
+{
+    PROJECTS.map(({image, title, description, tags }) => (
+        <article>
+            <h3 class="text-2xl font-semibold text-yellow-200/90 mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-x-2 flex-row">
+                {tags.map(
+                    tag =>(
+                        <li>
+                            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                                <tag.icon class="size-4"/>
+                                {tag.name}
+                            </span>
+                        </li>
+                    )
+                )}
+            </ul>
+            <img class="rounded shadow-white/10" src={image} alt={`Captura de pantalla del proyecto ${image}`}>
+        </article>
+        )
+    )
+}
