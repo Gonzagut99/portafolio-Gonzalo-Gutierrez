@@ -16,9 +16,14 @@ const { description, title } = Astro.props;
 <!doctype html>
 <html lang="es" class="dark">
 	<head>
+		//Integrate meta tags that improve SEO
+
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="robots" content="index, follow" />
+		<meta name="author" content="Gonzalo Enrique Gutierrez Castillo" />
+		<meta name="keywords" content="Gonzalo Enrique Gutierrez Castillo, Gonzalo, Enrique, Gutierrez, Castillo, Software, Developer, Frontend, Backend, JavaScript, TypeScript, NodeJS, React, Angular, Vue, Svelte, Express, MongoDB, MySQL, PostgreSQL, HTML, CSS, Tailwind, Bootstrap, Materialize, Bulma, Chakra, Figma, Design, UX, UI, Web, Mobile, PWA, SEO, Google, Firebase, AWS, Azure, Vercel, Netlify, Heroku, Cloud, Serverless, Static, Dynamic, SSR, CSR, SPA, MPA, PWA, JAMstack, Headless, CMS, Web, Mobile, Social, Media, Facebook, Twitter, Instagram, LinkedIn, GitHub, GitLab, Bitbucket, WhatsApp, Signal, Messenger, Email, Phone, Contact, About, Portfolio, Blog, Projects, Services, Skills, Experience, Education, Certifications" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
