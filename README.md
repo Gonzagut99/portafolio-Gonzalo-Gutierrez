@@ -2,6 +2,8 @@
 
 Bienvenido al repositorio de mi portafolio. Este proyecto es una muestra de las habilidades y proyectos realizados por mi persona como desarrollador trainee.
 
+![Imagen de Portafolio](./public/projects/portfolioPanoramicMockup.webp)
+
 ## 🚀 Estructura del Proyecto
 
 Dentro de este proyecto de Astro, encontrarás las siguientes carpetas y archivos:
