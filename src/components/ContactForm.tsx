@@ -7,6 +7,7 @@ import { render } from '@react-email/components';
 import './AboutMeParallax/styles.css'
 import Alerts from './Alerts';
 import SpinningIcon from './icons/SpinningIcon';
+//import { POST } from '../pages/api/sendEmail.json.ts';
 
 function ContactForm() {
   //email validation
@@ -55,7 +56,9 @@ function ContactForm() {
         })
         setIsLoading(true)
         try {
-            const res = await fetch("/api/sendEmail.json",{
+          const apiUrl = 'https://gonzalogutdev.netlify.app' ; // Obtén la URL base de la API desde la variable de entorno
+
+            const res = await fetch(`${apiUrl}/sendEmail.json`, {
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json",
@@ -68,6 +71,7 @@ function ContactForm() {
                     text:finalText,
                 })
             });
+
             let data
             //whenever the response is ok the alert is shown using the states i've created or useEffect
             if(res.ok){
