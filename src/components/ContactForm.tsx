@@ -58,7 +58,7 @@ function ContactForm() {
         try {
           const apiUrl = 'https://gonzalogutdev.netlify.app' ; // Obtén la URL base de la API desde la variable de entorno
 
-            const res = await fetch(`${apiUrl}/sendEmail.json`, {
+            const res = await fetch(`${apiUrl}/api/sendEmail.json`, {
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json",
