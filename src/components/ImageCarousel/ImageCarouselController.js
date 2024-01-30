@@ -1,5 +1,4 @@
 import { Carousel } from 'flowbite';
-import {PROJECTS} from '../projectTypes.ts'
 
 const carouselElement = document.getElementById('indicators-carousel');
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './styles.css'
-import { PROJECTS, TAGS, type Tag, type ProjectsType } from "../projectTypesReact";
+import { PROJECTS, type Tag, type ProjectsType } from "../projectTypesReact";
 
 function ProjectGallery() {
 

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import SpinningIcon from './icons/SpinningIcon'
 
 function Spinner({size='size-4'}:{size:string}) {

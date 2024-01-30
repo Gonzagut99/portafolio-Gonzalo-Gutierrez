@@ -22,13 +22,7 @@ import FirebaseStore from "./icons/Firebase";
 import ViteIcon from "./icons/Vite";
 import NodeIcon from "./icons/NodeIcon";
 import DockerIcon from "./icons/DockerIcon";
-import AzureRepos from "./icons/AzureRepos.astro";
 
-import GithubIcon from "./icons/GitHub.astro";
-import ExternalLinkIcon from "./icons/External_link.astro";
-
-import DialogHover from "./DialogHover.astro";
-import SVGLink from "./SVGLink.astro";
 import SoftSkills from "./icons/SoftSkills";
 import LaguageIcon from "./icons/LaguageIcon";
 import Brain from "./icons/Brain";

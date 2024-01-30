@@ -1,4 +1,3 @@
-import React from 'react'
 type alertProps = {
     status:string
     message:string

@@ -1,7 +1,5 @@
 ---
-import ContactFormAstro from './ContactForm.astro';
 import ContactFormPreact from './ContactForm.tsx'
-import DynamicNavbar from './DynamicNavbar';
 import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-navbar";
 ---
 <!-- <header class="flex justify-center items-center py-5 px-4 w-full xl:w-[1120px] mx-auto">
@@ -34,11 +32,12 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
                 <li><a class="text-nowrap" href="/sobre_mi">Skills y educación</a></li>
                 <li><a class="cursor-pointer" id="contact-form-button">Contacto</a></li>
                 <!-- <ContactFormAstro></ContactFormAstro> -->
-                <ContactFormPreact client:load></ContactFormPreact>
+                
             </ul>
             
           </MenuItems>
         </Astronav>
+        <ContactFormPreact client:load></ContactFormPreact>
     </div>
   </header>
   <script>
@@ -98,6 +97,7 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
     const $targetEl = document.getElementById('drawer-contact');
     const $drawerbutton = document.getElementById('contact-form-button');
     const $drawercardbutton = document.getElementById('contact-card')
+    const $keepInTouchbutton = document.querySelectorAll('.contact-button')
 
     // options with default values
     const options = {
@@ -131,4 +131,9 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
     $drawercardbutton?.addEventListener('click',()=>{
         drawer.toggle()        
     })
+    $keepInTouchbutton?.forEach((button) => {
+        button.addEventListener('click', () => {
+            drawer.toggle();
+        });
+    });
   </script>

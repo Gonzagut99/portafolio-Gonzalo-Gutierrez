@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {type Skill} from './aboutMeInfo'
 import Badge from '../Badge'
 import CardDialog from './CardDialog';

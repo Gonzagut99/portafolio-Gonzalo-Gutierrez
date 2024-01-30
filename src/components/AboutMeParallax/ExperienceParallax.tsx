@@ -1,12 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 import {useLoading} from "../../hooks/useLoading";
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import './styles.css'
-import { techSkills } from './aboutMeInfo'
-import GridCard from './GridCard'
 import YearBubble from './YearBubble'
 import TimeLine from '../Timeline/TimeLine'
-import SpinningIcon from '../icons/SpinningIcon'
 import Spinner from '../Spinner'
 import {aboutMeExperienceInfo} from './aboutMeExperienceInfo'
 import KeepInTouchIcon from '../icons/KeepInTouchIcon';
@@ -40,8 +37,8 @@ function ExperienceParallax
             primer trabajo.
           </p>
           <a
-            href="#_"
-            className="relative inline-flex items-center justify-start  px-5 py-3 overflow-hidden font-medium rounded-lg group mt-3"
+            id='contact-button'
+            className="contact-button relative inline-flex items-center justify-start  px-5 py-3 overflow-hidden font-medium rounded-lg group mt-3"
           >
             
             <span className="absolute top-0 left-0 !w-[400px] md:!w-[350px] h-48 lg:size-56 -mt-1 transition-all duration-500 ease-in-out -translate-x-[500px] lg:-translate-x-96 -translate-y-24 bg-gray-200/90 group-hover:bg-yellow-300 opacity-100 group-hover:translate-x-1 lg:-translate-y-28 transform skew-x-[-12deg]"></span>

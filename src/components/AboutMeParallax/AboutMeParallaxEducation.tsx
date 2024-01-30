@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import './styles.css'
-import { techSkills } from './aboutMeInfo'
-import GridCard from './GridCard'
 import YearBubble from './YearBubble'
 import TimeLine from '../Timeline/TimeLine'
 import {useLoading} from '../../hooks/useLoading'

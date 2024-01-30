@@ -21,13 +21,6 @@ import FirebaseStore from "./icons/Firebase.astro";
 import ViteIcon from "./icons/Vite.astro";
 import NodeIcon from "./icons/NodeIcon.astro";
 import DockerIcon from "./icons/DockerIcon.astro";
-import AzureRepos from "./icons/AzureRepos.astro";
-
-import GithubIcon from "./icons/GitHub.astro";
-import ExternalLinkIcon from "./icons/External_link.astro";
-
-import DialogHover from "./DialogHover.astro";
-import SVGLink from "./SVGLink.astro";
 
 type Tag = {
     name: string,

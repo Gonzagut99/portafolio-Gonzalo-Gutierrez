@@ -1,4 +1,3 @@
-import React from 'react'
 import {type TimelineItem} from './TimeLineTypes'
 interface TimelineItemProps extends TimelineItem{
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+
 type BubbleProps={
     year:string
 }
