@@ -1,0 +1,55 @@
+---
+import { PROJECTS, type ProjectsType } from "./projectTypes";
+---
+
+<section class="sm:columns-2">
+  {
+    PROJECTS.map((project) => (
+      <a class="flex flex-col mb-8 gap-y-2 shadow-lg transition ease-in-out delay-150 duration-300 hover:scale-[1.02]" href={`/proyectodetalle/${project.id}`}>
+        <img
+          class="rounded-lg"
+          src={project.images[0]}
+          alt={`Captura ${project.title}`}
+        />
+        <div class="flex flex-wrap justify-between gap-y-1 gap-x-2 font-light text-base md:text-lg">
+          <h2 class="text-nowrap">{project.title}</h2>
+          <ul class="flex gap-x-1 flex-row flex-wrap gap-y-1">
+            {project.technologyTags.map((tag) => (
+              <li>
+                <span
+                  class={`flex gap-x-2 rounded-full text-base ${tag.class} p-2`}
+                >
+                  <tag.icon class="size-4" />
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </a>
+    ))
+  }
+</section>
+
+<style>
+  section{
+    column-gap: 32px;
+  }
+  section a {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 30%;
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      translate: 0 100px;
+      scale: 0.8;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+      scale: 1;
+    }
+  }
+</style>

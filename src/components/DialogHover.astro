@@ -1,0 +1,10 @@
+---
+interface Props {
+    bg_color?:string
+    group_hover:string
+}
+---
+<div
+    class={`hidden absolute text-xs text-black rounded-lg ${Astro.props.bg_color??'bg-white/70'} px-2 py-1 ${Astro.props.group_hover}`}>
+    <slot></slot>
+</div>

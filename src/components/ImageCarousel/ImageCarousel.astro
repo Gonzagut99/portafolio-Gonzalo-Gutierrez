@@ -1,0 +1,57 @@
+---
+import SliderControlNext from './SliderControlNext.astro';
+import SliderControlPrev from './SliderControlPrev.astro';
+import ImageItem from './ImageItem.astro'
+import SliderIndicator from './SliderIndicator.astro';
+
+interface Props {
+    images: string[];
+    activeImage?:number;
+}
+const { images, activeImage } = Astro.props;
+---
+<div id="indicators-carousel" class="relative w-full" data-carousel="static">
+    <!-- Carousel wrapper -->
+    <div class="relative aspect-video overflow-hidden rounded-lg">
+         <!-- Items -->
+        <!-- <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+            <img src={images[0]} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <img src={images[1]} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+        </div> -->
+        {
+            images.map((image,keyImage)=>(
+                activeImage===keyImage?(
+                    <ImageItem imgsrc={image} keyImg={keyImage} isActive='active'></ImageItem>
+                ):(
+                    keyImage===0?(<ImageItem imgsrc={image} keyImg={keyImage} isActive='active'></ImageItem>):(
+                        <ImageItem imgsrc={image} keyImg={keyImage}></ImageItem>
+                    )
+                    
+                )
+            ))
+        }
+    </div>
+    <!-- Slider indicators -->
+    <div class="absolute z-10 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
+        <!-- <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button> -->
+        {
+            images.map((image,index)=>(
+                activeImage===index?(
+                    <SliderIndicator isCurrent='true' slideIndex={index} slideNumber={index+1}></SliderIndicator> 
+                ):(
+                    index===0?(<SliderIndicator isCurrent='true' slideIndex={index} slideNumber={index+1}></SliderIndicator>):(<SliderIndicator isCurrent='false' slideIndex={index} slideNumber={index+1}></SliderIndicator>)                    
+                )
+               
+            ))
+        }
+    </div>
+    <!-- Slider controls -->
+    <SliderControlPrev></SliderControlPrev>
+    <SliderControlNext></SliderControlNext>
+</div>
+<script src="./ImageCarouselController.js">
+
+</script>

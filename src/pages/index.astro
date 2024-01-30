@@ -10,43 +10,68 @@ import Experience from '../components/Experience.astro';
 import BriefCase from '../components/icons/BriefCase.astro';
 import CodeIcon from '../components/icons/Code.astro';
 import Projects from '../components/Projects.astro';
+import CardMenu from "../components/CardMenu.astro";
+//import CodingIllustration from '../components/Illustrations/CodingIllustrationReact'; 
+import CodingIllustration from '../components/Illustrations/CodingIllustration.astro'; 
+import AboutMeSection from '../components/AboutMeSection.astro';
+import DownloadIcon from '../components/icons/DownloadIcon.astro';
 ---
 
 <Layout 
 title="Gonzalo Gutiérrez - Desarrollador/Programador Web - Diseñador UX/UI"
 description="Contrata a Gonzalo Gutiérrez (@gonza_dvui) Trainee fullstack en desarrollo web y móvil. Diseñador UX/UI. De Arequipa, Perú. Apasionado por crear aplicaciones significativas y desafiantes."
 >
-	<main class="px-4">
-		<SectionContainer class="py-24">
-			<div class="flex gap-x-2">
-				<img class="rounded-full size-8 lg:size-12" src="https://media.licdn.com/dms/image/D4E03AQE9eEi2qRZwoA/profile-displayphoto-shrink_800_800/0/1701134403451?e=1709769600&v=beta&t=9z0wvWYSdumn144tOz7uygkM8bHSmgNZgonvuyAKuHM" alt="Gonzalo Gutierrez photo">
-				<h1 class="text-gray-200 text-3xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-1 lg:pb-4">
-					Hola, soy Gonzalo
-					<a
-					href="https://www.linkedin.com/in/gonzalo-guti%C3%A9rrez-castillo-5520b1196/"
-					target="_blank"
-					rel="noopener"
-					class="flex justify-center items-center">
-					<Badge >Disponible para trabajar</Badge>
-				</a></h1>
+	<main class="px-4 mb-auto pt-12">
+		<SectionContainer class="py-6 sm:py-16 lg:py-14 2xl:py-16 w-full gap-x">
+
+			<section class="flex flex-col  lg:flex-row gap-2 w-full items-center justify-center">
+				<div class="flex flex-col">
+					<!-- <img class="rounded-full size-8 lg:size-12" src="https://media.licdn.com/dms/image/D4E03AQE9eEi2qRZwoA/profile-displayphoto-shrink_800_800/0/1701134403451?e=1709769600&v=beta&t=9z0wvWYSdumn144tOz7uygkM8bHSmgNZgonvuyAKuHM" alt="Gonzalo Gutierrez photo"> -->
+					<h1 class="text-center lg:text-start text-gray-200 text-3xl lg:text-5xl font-bold pb-1 lg:pb-2">
+						Hola, soy Gonzalo
+						<!-- <a
+						href="https://www.linkedin.com/in/gonzalo-guti%C3%A9rrez-castillo-5520b1196/"
+						target="_blank"
+						rel="noopener"
+						class="flex justify-center items-center">
+							<Badge >Disponible para trabajar</Badge>
+						</a> -->
+					</h1>
+					<h2 class="mt-3 sm:text-lg md:text-xl lg:text-xl text-wrap opacity-80 max-w-[700px]"><span class="font-semibold text-yellow-200/90">Trainee fullstack en desarrollo web y móvil.</span> <span class="text-green-200/90">Diseñador UX/UI.</span> <span class="text-red-200/90">De Arequipa, Perú.</span> <span class="opacity-90">Me encanta resolver problemas y crear aplicaciones significativas y desafiantes.</span></h2>
+				</div>
+				<!-- <CodingIllustration client:load className="w-2/3 h-full bg-transparent"></CodingIllustration> -->
+				<CodingIllustration class="w-full max-w-[380px] sm:w-1/2 sm:max-w-none lg:w-2/3 h-full bg-transparent"></CodingIllustration>
+			</section>
+			<div class="w-full flex justify-center lg:justify-start">
+				<nav class="flex gap-2 mt-1 lg:mt-2 flex-wrap">
+						<SocialPill href="https://www.linkedin.com/in/gonzalo-guti%C3%A9rrez-castillo-5520b1196/">
+							<LinkedInIcon class="size-4 lg:size-6" />
+							LinkedIn
+						</SocialPill>
+						<SocialPill href="https://github.com/Gonzagut99">
+							<GitHubIcon class="size-4 lg:size-6" />
+							GitHub
+						</SocialPill>
+						<SocialPill href="mailto:gonzalogut.99@gmail.com">
+							<MailIcon class="size-4 lg:size-6" />
+							gonzalogut.99@gmail.com
+						</SocialPill>
+						
+						<a
+							class="rounded-full border border-yellow-200/10 text-yellow-200/90 flex justify-center items-center gap-x-2 py-1 px-2 lg:py-2 lg:px-4 text-xs lg:text-base bg-white/5 hover:scale-110 hover:bg-white/10 transition"
+							href="/assets/GONZALO_GUTIERREZ_CV.pdf"
+							target="_blank"
+							rel="noopener noreferrer"
+							download
+						>
+							<DownloadIcon class="size-4 lg:size-6"/>
+							Descargar CV
+						</a>
+						
+				</nav>
 			</div>
-			<h2 class="mt-3 text-xl lg:text-2xl text-wrap opacity-80 max-w-[700px]"><span class="font-semibold text-yellow-200/90">Trainee fullstack en desarrollo web y móvil.</span> <span class="text-green-200/90">Diseñador UX/UI.</span> <span class="text-red-200/90">De Arequipa, Perú.</span> <span class="opacity-90">Me encanta resolver problemas y crear aplicaciones significativas y desafiantes.</span></h2>
-			<nav class="flex gap-2 mt-4 lg:mt-8 flex-wrap">
-					<SocialPill href="https://www.linkedin.com/in/gonzalo-guti%C3%A9rrez-castillo-5520b1196/">
-						<LinkedInIcon class="size-4 lg:size-6" />
-						LinkedIn
-					</SocialPill>
-					<SocialPill href="https://github.com/Gonzagut99">
-						<GitHubIcon class="size-4 lg:size-6" />
-						GitHub
-					</SocialPill>
-					<SocialPill href="mailto:gonzalogut.99@gmail.com">
-						<MailIcon class="size-4 lg:size-6" />
-						gonzalogut.99@gmail.com
-					</SocialPill>
-			</nav>
 		</SectionContainer>
-		<SectionContainer id="experience">
+		<!-- <SectionContainer id="experience">
 			<h2 class="text-gray-200 text-2xl font-semibold mb-6 flex gap-x-3">
 				<BriefCase class="size-7"></BriefCase>
 				Experiencia Laboral
@@ -60,7 +85,16 @@ description="Contrata a Gonzalo Gutiérrez (@gonza_dvui) Trainee fullstack en de
 				Proyectos
 			</h2>
 			<Projects></Projects>
+		</SectionContainer> -->
+		<SectionContainer id="cardMenu" class="flex flex-col justify-center gap-6 items-center ">
+			<!-- <h2 class="text-3xl font-medium text-gray-200/80">
+				Explora
+			</h2> -->
+			<CardMenu></CardMenu>
 		</SectionContainer>
+		<SectionContainer id="cardMenu" class="flex flex-col md:flex-row justify-center items-center gap-4 max-w-[700px] lg:max-w-none lg:pb-14">
+			<AboutMeSection></AboutMeSection>
+		</SectionContainer>			
+		
 	</main>
 </Layout>
-

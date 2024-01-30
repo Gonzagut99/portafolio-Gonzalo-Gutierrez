@@ -1,9 +1,134 @@
-<header class="flex justify-center items-center py-5 px-4 w-full xl:w-[1120px] mx-auto">
-    <nav class="flex flex-row gap-x-5 sm:gap-x-10 opacity-80 justify-center text-[12px] sm:text-xs md:text-sm lg:text-base">
+---
+import ContactFormAstro from './ContactForm.astro';
+import ContactFormPreact from './ContactForm.tsx'
+import DynamicNavbar from './DynamicNavbar';
+import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-navbar";
+---
+<!-- <header class="flex justify-center items-center py-5 px-4 w-full xl:w-[1120px] mx-auto">
+    <nav class=" fixed flex flex-row gap-x-5 sm:gap-x-10 opacity-80 justify-center text-[12px] sm:text-xs md:text-sm lg:text-base">
         <a href="#top">Inicio</a>
         <a href="#experience">Experiencia</a>
         <a href="#projects">Proyectos</a>
         <a href="#about">Sobre mí</a>
         <a href="#contact">Contacto</a>
     </nav>
-</header>
+    <DynamicNavbar client:visible></DynamicNavbar>
+    
+</header> -->
+<header id="headerNav" class="lg:flex lg:justify-center w-full py-3 md:py-4 px-4 gap-5 fixed z-20 transition-all duration-500 ease-in-out bg-transparent ">
+    <div class="lg:flex lg:justify-between w-full lg:max-w-screen-xl ">
+        <Astronav>
+          <div class="flex w-full justify-between">
+            <a href="/">
+                <img class="size-6 lg:size-8 rounded-full" src="/profile_photos/perfil_2023.jpeg" alt="Gonzalo_foto">
+            </a>
+            <div id="hamburgerMenu" class="block lg:hidden items-center">
+              <MenuIcon class="size-6 text-gray-200" />
+            </div>
+          </div>
+          <MenuItems  class="hidden mt-4 lg:mt-0 lg:flex">
+            <ul class="flex flex-col gap-y-2 lg:flex-row lg:gap-5 lg:text-lg text-gray-200/90">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/experiencia">Experiencia</a></li>
+                <li><a href="/proyectos">Proyectos</a></li>
+                <li><a class="text-nowrap" href="/sobre_mi">Skills y educación</a></li>
+                <li><a class="cursor-pointer" id="contact-form-button">Contacto</a></li>
+                <!-- <ContactFormAstro></ContactFormAstro> -->
+                <ContactFormPreact client:load></ContactFormPreact>
+            </ul>
+            
+          </MenuItems>
+        </Astronav>
+    </div>
+  </header>
+  <script>
+    import { Drawer } from 'flowbite';
+
+    const headerNav = document.getElementById('headerNav');
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    //let hamburgerMenuClicked = false
+    let scrolled = false
+    let hamburgerOpenToggle = false
+    const activeClasses="lg:flex lg:justify-center w-full py-3 md:py-4 px-4 gap-5 fixed z-20 transition-all duration-500 ease-in-out bg-neutral-50 dark:bg-[#15151d]/90 bg-[rgba(120,119,198,0.3)] shadow-lg dark:shadow-custom_white/10"
+    const inactiveClasses="lg:flex lg:justify-center w-full py-3 md:py-4 px-4 gap-5 fixed z-20 transition-all duration-500 ease-in-out bg-transparent"
+
+    const handleScroll = () => {
+        const offset = window.scrollY;
+        //hamburgerMenuClicked=true;
+
+        let scrolledClasses;
+        if (offset > 30) {
+            scrolled = true;
+            //hamburgerMenuClicked=false;
+        } else {
+            scrolled = false;
+        }
+
+        if (headerNav) {
+            scrolledClasses = toggleClasses(scrolled,activeClasses,inactiveClasses)
+            
+            headerNav.className=scrolledClasses;
+        }
+    }
+
+    const handleHamburgerMenu = ()=>{
+        let scrolledClasses;
+        hamburgerOpenToggle = !hamburgerOpenToggle;
+        if (headerNav) {
+            scrolledClasses = toggleClasses(hamburgerOpenToggle,activeClasses,inactiveClasses)
+            
+            headerNav.className=scrolledClasses;
+        }
+    }
+
+    const evento = new MouseEvent('click', {
+        'view': window,
+        'bubbles': true,
+        'cancelable': true
+    });
+    const toggleClasses = (isToggled:boolean, classesA:string, classesB:string):string=>{
+        let scrolledClasses = isToggled ? classesA:classesB;
+        return scrolledClasses;
+    }
+    hamburgerMenu?.addEventListener('click', handleHamburgerMenu)
+    window.addEventListener('scroll', handleScroll)
+
+    
+    // set the drawer menu element
+    const $targetEl = document.getElementById('drawer-contact');
+    const $drawerbutton = document.getElementById('contact-form-button');
+    const $drawercardbutton = document.getElementById('contact-card')
+
+    // options with default values
+    const options = {
+        placement: 'left',
+        backdrop: true,
+        bodyScrolling: false,
+        edge: false,
+        edgeOffset: '',
+        backdropClasses:
+            'bg-gray-900/50 dark:bg-[#1b1b28]/80 fixed inset-0 z-10',
+        onHide: () => {
+            console.log('drawer is hidden');
+        },
+        onShow: () => {
+            console.log('drawer is shown');
+        },
+        onToggle: () => {
+            console.log('drawer has been toggled');
+        },
+    };
+
+    // instance options object
+    const instanceOptions = {
+        id: 'drawer-contact',
+        override: true
+    };
+    const drawer = new Drawer($targetEl, options, instanceOptions);
+
+    // show the drawer
+    $drawerbutton?.addEventListener('click',()=>drawer.toggle())
+    $drawercardbutton?.addEventListener('click',()=>{
+        drawer.toggle()        
+    })
+  </script>

@@ -1,0 +1,80 @@
+.fade_enter {
+  opacity: 0 ;
+  transition: opacity 0.5s ease-in ;
+}
+
+.fade_enter-active {
+  opacity: 1 ;
+}
+@media screen and (width>=768px) {
+  .scrollBar {
+    --sb-track-color: #15151d;
+    --sb-thumb-color: #e5e7eb15;
+    --sb-size: 6px;
+    scrollbar-color: var(--sb-thumb-color) 
+                     var(--sb-track-color);
+    /*scrollbar-gutter: stable both-edges;*/
+  }
+  
+
+  /* .scrollBar::-webkit-scrollbar {
+    width: var(--sb-size); 
+    display: block;
+    &:hover{
+      display: block;
+    }
+    &:active{
+      display: block;
+    }
+    &:focus{
+      display: block;
+    }
+  } */
+
+  .isDaplayed::-webkit-scrollbar {
+    display: block; 
+  }
+  .notDisplayed::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollBar::-webkit-scrollbar {
+    width: var(--sb-size); 
+  }
+
+  /* .scrollBar::-webkit-scrollbar:hover,
+.scrollBar::-webkit-scrollbar:active,
+.scrollBar::-webkit-scrollbar:focus {
+  display: block;
+} */
+
+  .scrollBar::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 10px;
+  }
+  
+  .scrollBar::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 10px;
+    visibility: visible;
+    }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+.fade-out {
+  animation: fadeOut 0.3s ease-in-out forwards;
+}
+.break_words{
+  word-break: break-all;
+}

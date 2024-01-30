@@ -3,6 +3,8 @@
 import '@fontsource-variable/onest';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+//import { ViewTransitions } from "astro:transitions";
+
 interface Props {
 	title: string;
 	description: string
@@ -20,12 +22,31 @@ const { description, title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<!-- <ViewTransitions></ViewTransitions> -->
+		<!-- <link rel="stylesheet" href="./src/index.css"> -->
+		<!-- <script>
+			//Iniciar la pagina en modo dark
+			localStorage.setItem('color-theme', 'dark');
+	  
+			if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark')
+			}
+		</script> -->
 	</head>
 	<body>
-		<div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
-		<Header></Header>
-		<slot />
-		<Footer></Footer>
+		<div class="fixed left-0 top-0 -z-10 h-full w-full">
+			<div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+		</div>
+
+		<div class="relative h-screen flex flex-col justify-between">
+			<Header></Header>
+			<slot />
+			<Footer></Footer>
+			
+		</div>
+		<script is:inline src="/flowbite.min.js"></script>
 	</body>
 </html>
 <style is:global>

@@ -1,0 +1,11 @@
+---
+type currentItem="true"|"false"
+interface Props {
+    isCurrent:currentItem
+    slideNumber:number
+    slideIndex:number
+}
+const { isCurrent,slideNumber,slideIndex } = Astro.props
+const idIndicator = `carousel-indicator-${slideNumber}`
+---
+<button id={idIndicator} type="button" class="bg-gray-400 w-3 h-3 rounded-full" aria-current={isCurrent} aria-label=`Slide ${slideNumber}` data-carousel-slide-to={`${slideIndex}`} ></button>

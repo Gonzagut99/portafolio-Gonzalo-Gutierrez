@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Badge from '../components/Badge.astro';
+import LinkedInIcon from '../components/icons/LinkedIn.astro';
+import GitHubIcon from '../components/icons/GitHub.astro';
+import MailIcon from '../components/icons/Mail.astro';
+import SocialPill from '../components/SocialPill.astro';
+import Experience from '../components/Experience.astro';
+import BriefCase from '../components/icons/BriefCase.astro';
+import CodeIcon from '../components/icons/Code.astro';
+import Projects from '../components/Projects.astro';
+import CardMenu from "../components/CardMenu.astro";
+import SampleEmail from "../emails/SampleEmail";
+import UserCheckIcon from '../components/icons/UserCheckIcon.astro';
+import AboutMeParallax from '../components/AboutMeParallax/AboutMeParallax';
+import TabNav from '../components/TabNav/TabNav'
+import AboutMeBody from '../components/AboutMeBody';
+---
+
+<Layout 
+title="Gonzalo Gutiérrez - Sobre mí"
+description="Contrata a Gonzalo Gutiérrez (@gonza_dvui) Trainee fullstack en desarrollo web y móvil. Diseñador UX/UI. De Arequipa, Perú. Apasionado por crear aplicaciones significativas y desafiantes."
+>
+	<main class="px-4 mb-auto pt-12 pb-6  flex flex-col flex-grow ">
+		<SectionContainer id="sobre_mi_header" class="relative pt-6 sm:pt-16 lg:pt-14 2xl:pt-16 pb-2 lg:pb-4 flex flex-col gap-y-2 sm:gap-y-3 md:gap-y-4 lg:gap-y-5">
+			<h2 class="text-gray-200 text-3xl font-semibold flex gap-x-2 self-center">
+				<UserCheckIcon class="size-8"></UserCheckIcon>
+				Sobre mí
+			</h2>
+		</SectionContainer>
+		<AboutMeBody client:load></AboutMeBody>
+		<!-- <TabNav client:load></TabNav>
+		<SectionContainer id="sobre_mi_parallax" class="relative w-full h-full flex flex-col gap-y-2 sm:gap-y-3 md:gap-y-4 lg:gap-y-5">
+			<AboutMeParallax client:load></AboutMeParallax>
+		</SectionContainer>	 -->
+	</main>
+	<!-- <SampleEmail userFirstname='Gonzalo'></SampleEmail> -->
+</Layout>
