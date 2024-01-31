@@ -230,7 +230,7 @@ function ContactForm() {
           {isClient ?(<ReCAPTCHA
               size='compact'
               ref={captchaRef}
-              sitekey={import.meta.env.RECAPTCHA_SITE_KEY}
+              sitekey={import.meta.env.RECAPTCHA_SITE_KEY||process.env.RECAPTCHA_SITE_KEY}
               onChange={onChange}
               theme="light"
           />):<SpinningIcon className="size-8 animate-spin text-yellow-200/95"></SpinningIcon>}
