@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import React,{ useState, useRef, useEffect } from 'react';
+import ReCAPTCHA from "react-google-recaptcha";
 import Mail from "./icons/Mail";
 import MyEmail from "./icons/MyEmail";
 import Phone from "./icons/Phone";
@@ -21,11 +22,28 @@ function ContactForm() {
 
     const [isLoading, setIsLoading] = useState(false);
 
-    //Email validation function
-    // function validateEmail(email: string) {
-    //   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    //   return re.test(String(email).toLowerCase());
+    //recaptcha
+    const [isClient, setIsClient] = useState(false);
+    const captchaRef = useRef<ReCAPTCHA>(null);
+    const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
+    const [passedCaptcha, setPassedCaptcha] = useState(false);
+
+    // function handleRecaptchaResponse() {
+    //   if (captcha.current) {
+    //     const token = captcha.current?.getValue();
+    //     setRecaptchaToken(token);
+    //   }
     // }
+
+    //recaptcha function
+    const onChange = (value:string|null) => {
+      setRecaptchaValue(value);
+    }
+    useEffect(() => {
+      setIsClient(true);
+    }, []);
+
+    //Email validation function
     function validateEmail(email: string) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
@@ -38,6 +56,12 @@ function ContactForm() {
     const handleSubmit = async (e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault();
         const formData = new FormData(e.currentTarget)
+        if (recaptchaValue) {
+          setPassedCaptcha(true);
+        }else{
+          setPassedCaptcha(false);
+          return
+        }
         const {thirdPartyEmail, subject, messageBody} = Object.fromEntries(formData)
         const myEmail = "gonzalogut.99@gmail.com"
         const domainEmail = 'noreply@gonzalogutdev.me'
@@ -83,7 +107,7 @@ function ContactForm() {
                 setIsLoading(false)
                 setTimeout(() => {
                     setIsAlertShown(false)
-                }, 5000);
+                }, 10000);
             } else {
                 setResponseMessage(data)
                 
@@ -92,12 +116,13 @@ function ContactForm() {
                 setIsLoading(false)
                 setTimeout(() => {
                     setIsAlertShown(false)
-                }, 5000);
+                }, 30000);
             }
-            
+            captchaRef.current?.reset();
             //console.log(data)
             //console.log(res)
         }catch (error) {
+            captchaRef.current?.reset();
             console.error(error)
         }
     }
@@ -200,13 +225,22 @@ function ContactForm() {
             placeholder="Su mensaje..."
           ></textarea>
         </div>
-
-        {/* <button
-          type="submit"
-          className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-yellow-200/80 dark:hover:border-yellow-200/80 dark:hover:bg-transparent dark:focus:ring-gray-800 w-full"
-        >
-          Enviar mensaje
-        </button> */}
+        
+        <div className='mb-4 flex flex-col gap-2 w-full justify-center items-center'>
+          {isClient ?(<ReCAPTCHA
+              size='compact'
+              ref={captchaRef}
+              sitekey={import.meta.env.RECAPTCHA_SITE_KEY}
+              onChange={onChange}
+              theme="light"
+          />):<SpinningIcon className="size-8 animate-spin text-yellow-200/95"></SpinningIcon>}
+          
+          {!passedCaptcha && (
+            <p className="text-red-500 text-xs italic w-full text-start">
+              Por favor, acepta el captcha.
+            </p>
+          )}
+        </div>
 
         <button
           type="submit"
@@ -223,7 +257,10 @@ function ContactForm() {
         </button>
       </form>
       {isAlertShown && (
-        <Alerts status={alertType} message={responseMessage!.customMessage}></Alerts>
+        <Alerts
+          status={alertType}
+          message={responseMessage!.customMessage}
+        ></Alerts>
       )}
       <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
         <a
@@ -234,7 +271,7 @@ function ContactForm() {
           <span>gonzalogut.99@gmail.com</span>
         </a>
       </p>
-      <p className="text-sm text-gray-500 dark:text-gray-400">
+      <p className="text-sm text-gray-500 dark:text-gray-400 pb-16">
         <a
           href="#"
           className="hover:underline font-light inline-flex gap-1 items-center"
