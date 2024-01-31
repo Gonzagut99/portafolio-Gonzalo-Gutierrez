@@ -226,11 +226,12 @@ function ContactForm() {
           ></textarea>
         </div>
         
+        {/* sitekey={`${import.meta.env.RECAPTCHA_SITE_KEY}`} */}
         <div className='mb-4 flex flex-col gap-2 w-full justify-center items-center'>
           {isClient ?(<ReCAPTCHA
               size='compact'
               ref={captchaRef}
-              sitekey={`${import.meta.env.RECAPTCHA_SITE_KEY}`}
+              sitekey={`6LdRimEpAAAAACleHgdf1LqWZ52yKwmjZO4jx1m0`}
               onChange={onChange}
               theme="light"
           />):<SpinningIcon className="size-8 animate-spin text-yellow-200/95"></SpinningIcon>}
