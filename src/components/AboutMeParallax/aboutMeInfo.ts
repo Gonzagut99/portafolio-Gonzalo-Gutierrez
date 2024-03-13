@@ -41,9 +41,9 @@ export const techSkills:Skill[] = [
     {
         name:TAGS.REACT.name,
         icon:TAGS.REACT.icon,
-        level:"Intermedio",
-        levelVariant:"yellow",
-        description:'Conocimiento práctico en creaión de componentes usandos los hooks useState, useEffect, useContext, y useRef. Además, tengo conocimiento en el uso de librerías como react-router-dom, react-icons, react-lazy-load-image-component, react-intersection-observer, y react-email, react-scroll, y react-spring'
+        level:"Avanzado",
+        levelVariant:"red",
+        description:'Conocimiento práctico en creaión de componentes usandos los hooks useState, useEffect, useContext, y useRef. Además, tengo conocimiento en el uso de librerías como react-router-dom, react-icons, react-lazy-load-image-component, react-intersection-observer, y react-email, react-scroll, y react-spring. Finalmente, conozco los patrones de render, render props, HOC components, y manejo del estado con Redux, Zustand, y XState'
     },
     {
         name:TAGS.ASTRO.name,
@@ -73,6 +73,35 @@ export const techSkills:Skill[] = [
         levelVariant:"yellow",
         description:'Conozco todo lo indispensable que se tiene que saber de este lenguaje, como el uso de tipos, interfaces, clases, enums, generics, y decoradores. Además de un conocimiento basico de tsx para React, y consultas a APIs con fetch'
     },
+    {
+        name:TAGS.NEXT.name,
+        icon:TAGS.NEXT.icon,
+        level:"Intermedio",
+        levelVariant:"yellow",
+        description:'Como framework fullstack, tambien puedo usar la API de Next, y el uso de sus métodos de pre-renderizado, y el uso de sus métodos de generación de rutas dinámicas con el app route. Manejo los modulos de cacheo y revalidación del mismo, navegación, imagenes de Next. He usado layouts y templates, el edge runtime, el parallel routing, y los metodos de data fetching, redireccionamiento y parametros de la speticiones. Entiendo el paradigma de la programación SSR e hidratación de React. Manejo de errores, de loading y null safety'
+    },
+    {
+        name: TAGS.REDUX.name,
+        icon: TAGS.REDUX.icon,
+        level: "Intermedio",
+        levelVariant: "yellow",
+        description: 'Conocimientos y práctica en el uso de manejo del estado con Redux. Además, tengo conocimiento en el uso de librerías como redux-thunk, redux-saga, y redux-toolkit'
+    },
+    {
+        name: TAGS.XSTATE.name,
+        icon: TAGS.XSTATE.icon,
+        level: "Intermedio",
+        levelVariant: "yellow",
+        description: 'Puedo crear maquinas de estado con XState, y su integración con React. Manejo estados finitos, paralelos y compuestos, y el uso de sus métodos de transición, y el uso de sus métodos de contexto, y el uso de sus métodos de efectos'
+    },
+    {
+        name: TAGS.SASS.name,
+        icon: TAGS.SASS.icon,
+        level: "Básico",
+        levelVariant: "green",
+        description: 'He utilizado muy poco esta tecnología, pero comprendo los conceptos de la preprocesador de CSS, la sintaxis de anidación. Tambien he trabajado con módulos sass para Next.js'
+    },
+    
 ]
 
 export const techSkillsBackend:Skill[] = [
@@ -81,7 +110,7 @@ export const techSkillsBackend:Skill[] = [
         icon:TAGS.NODE.icon,
         level:"Básico",
         levelVariant:"green",
-        description:'Comprendo los conceptos del event loop, y el uso de callbacks, promises, async/await, y el uso de la API de fs. Además, tengo conocimiento en el uso de librerías como express, y nodemon. Para terminar, obviamente tengo los conocimientos básicos para crear un servidor API REST y el consumo de bases de datos no relacionales con Node como MongoDB'
+        description:'Comprendo los conceptos del event loop, y el uso de callbacks, promises, async/await, y el uso de la API de fs y de los demás módulos nativos de Node (HTTP, OS, Process, etc). Conozco el manejo de Buffers y Streams. Benchmarking con los metodos del objeto console, deguggeo con el inspector de devtools, scraping con Pupeteer, automatización básica con GulpJs, y creación de aplicaciones de escritorio básicos con Electron.  Además, tengo conocimiento en el uso de librerías como express, y nodemon. Para terminar, obviamente tengo los conocimientos básicos para crear un servidor API REST y el consumo de bases de datos no relacionales con Node como MongoDB'
     },
     {
         name:TAGS.SPRING.name,
@@ -119,12 +148,13 @@ export const techSkillsBackend:Skill[] = [
         description:'Conocimientos y práctica en los conceptos de las bases de datos no relacionales como MongoDB, así como en el uso de sus métodos de manipulación de datos, el uso de sus métodos de agregación, métodos de filtrado, métodos de indexación y creación de vistas. Además, tengo conocimiento en el uso de librerías como Mongoose'
     },
     {
-        name:TAGS.NEXT.name,
-        icon:TAGS.NEXT.icon,
+        name:TAGS.GRAPHQL.name,
+        icon:TAGS.GRAPHQL.icon,
         level:"Básico",
         levelVariant:"green",
-        description:'Como framework fullstack, estoy considerando esta tecnología dentro de mis habilidades backend, pero solo tengo conocimientos básicos de su uso, y de su integración con React'
-    },
+        //description:'He utilizado muy poco esta tecnología, pero comprendo los conceptos de la API de GraphQL, y el uso de sus métodos de manipulación de datos, el uso de sus métodos de agregación, métodos de filtrado, métodos de indexación y creación de vistas. Además, tengo conocimiento en el uso de librerías como Apollo Client, y Apollo Server',
+        description:'He utilizado muy poco esta tecnología, pero comprendo los conceptos de la API de GraphQL, y el uso de sus métodos de manipulación de datos, lo he utilizado para acceder a la API de autenticación de Shopify.'
+    }
 ]
 
 export const techSkillsAdditional:Skill[] = [
@@ -168,7 +198,7 @@ export const techSkillsAdditional:Skill[] = [
         icon:TAGS.CLOUDTECHS.icon,
         level:"Básico",
         levelVariant:"green",
-        description:'He utilizado algunas herramientas de la nube como Firebase y GCP(GEngine, cuentas de servicio, y bases de datos cloud como PostgresSQL), pero solo tengo conocimientos básicos de su uso, y de su integración con React. Tambien he utilizado Azure para el despliegue de aplicaciones basadas en Node Dockerizadas en maquinas virtuales.'
+        description:'He utilizado algunas herramientas de la nube como Firebase y GCP (GEngine, cuentas de servicio, y bases de datos cloud como PostgresSQL), pero solo tengo conocimientos básicos de su uso, y de su integración con React. Tambien he utilizado Azure para el despliegue de aplicaciones basadas en Node Dockerizadas en maquinas virtuales.'
     },
     {
         name:TAGS.BUSINESSNSTARTUPS.name,

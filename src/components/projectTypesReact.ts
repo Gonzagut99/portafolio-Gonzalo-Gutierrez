@@ -28,6 +28,10 @@ import LaguageIcon from "./icons/LaguageIcon";
 import Brain from "./icons/Brain";
 import CloudTechs from "./icons/CloudTechs";
 import MoneyStack from "./icons/MoneyStack";
+import { ReduxIcon } from "./icons/Redux";
+import XStateIcon from "./icons/XStateIcon";
+import GraphQLIcon from "./icons/GraphQLIcon";
+import SassIcon from "./icons/SassIcon";
 
 type TagProps = {
     className: string;
@@ -154,6 +158,26 @@ export const TAGS = {
         name: 'Docker',
         class: 'bg-[#008fe2]/10 focus:bg-[#008fe2]/50',
         icon: DockerIcon
+    },
+    REDUX:{
+        name: 'Redux',
+        class: 'bg-[#764ABC]/10 focus:bg-[#764ABC]/50',
+        icon: ReduxIcon
+    },
+    XSTATE:{
+        name: 'XState',
+        class: 'bg-[#f0db4f]/10 focus:bg-[#f0db4f]/50',
+        icon: XStateIcon
+    },
+    GRAPHQL:{
+        name: 'GraphQL',
+        class: 'bg-[#e10098]/10 focus:bg-[#e10098]/50',
+        icon: GraphQLIcon
+    },
+    SASS:{
+        name: 'Sass',
+        class: 'bg-[#CF649A]/10 focus:bg-[#CF649A]/50',
+        icon: SassIcon
     },
     AZUREREPOS:{
         name: 'Azure Repos',
