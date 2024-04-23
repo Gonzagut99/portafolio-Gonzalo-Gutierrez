@@ -1,46 +1,70 @@
-import React from 'react'
-
-function Next({className}) {
-  return (
-    <svg
-      viewBox="0 0 256 256"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="256"
-      height="256"
-      preserveAspectRatio="xMidYMid"
-      className={className}
+const Next = (props) => (
+  <svg
+    width="1em"
+    height="1em"
+    viewBox="0 0 180 180"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <mask
+      id="mask0_408_139"
+      style={{
+        maskType: "alpha",
+      }}
+      maskUnits="userSpaceOnUse"
+      x={0}
+      y={0}
+      width={180}
+      height={180}
     >
-      <defs>
-        <linearGradient
-          id="c"
-          x1="55.633%"
-          x2="83.228%"
-          y1="56.385%"
-          y2="96.08%"
-        >
-          <stop offset="0%" stopColor="#FFF"></stop>
-          <stop offset="100%" stopColor="#FFF" stopOpacity="0"></stop>
-        </linearGradient>
-        <linearGradient id="d" x1="50%" x2="49.953%" y1="0%" y2="73.438%">
-          <stop offset="0%" stopColor="#FFF"></stop>
-          <stop offset="100%" stopColor="#FFF" stopOpacity="0"></stop>
-        </linearGradient>
-        <circle id="a" cx="128" cy="128" r="128"></circle>
-      </defs>
-      <mask id="b" fill="#fff">
-        <use xlinkHref="#a"></use>
-      </mask>
-      <g mask="url(#b)">
-        <circle cx="128" cy="128" r="128"></circle>
-        <path
-          fill="url(#c)"
-          d="M212.634 224.028 98.335 76.8H76.8v102.357h17.228V98.68L199.11 234.446a128.433 128.433 0 0 0 13.524-10.418Z"
-        ></path>
-        <path fill="url(#d)" d="M163.556 76.8h17.067v102.4h-17.067z"></path>
-      </g>
-    </svg>
-  );
-}
-
-export default Next
+      <circle cx={90} cy={90} r={90} fill="black" />
+    </mask>
+    <g mask="url(#mask0_408_139)">
+      <circle
+        cx={90}
+        cy={90}
+        r={87}
+        fill="black"
+        stroke="white"
+        strokeWidth={6}
+      />
+      <path
+        d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z"
+        fill="url(#paint0_linear_408_139)"
+      />
+      <rect
+        x={115}
+        y={54}
+        width={12}
+        height={72}
+        fill="url(#paint1_linear_408_139)"
+      />
+    </g>
+    <defs>
+      <linearGradient
+        id="paint0_linear_408_139"
+        x1={109}
+        y1={116.5}
+        x2={144.5}
+        y2={160.5}
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="white" />
+        <stop offset={1} stopColor="white" stopOpacity={0} />
+      </linearGradient>
+      <linearGradient
+        id="paint1_linear_408_139"
+        x1={121}
+        y1={54}
+        x2={120.799}
+        y2={106.875}
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="white" />
+        <stop offset={1} stopColor="white" stopOpacity={0} />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+export default Next;

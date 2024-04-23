@@ -33,8 +33,7 @@ function ExperienceParallax
             alt=""
           />
           <p className="text-center md:text-xl max-w-96 text-gray-200/90">
-            Aún no tengo experiencia laboral formal, pero estoy listo para mi
-            primer trabajo.
+            Actualmente vengo ralizando prácticas en el Hub de Innovación de UCAL, en el área de desarrollo de software para startups.
           </p>
           <a
             id='contact-button'
